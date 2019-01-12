@@ -1,0 +1,34 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.1.RELEASE'
+    }
+    repositories {
+        maven { url "http://repo.anchnet.com/repository/public" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+repositories {
+    maven { url "http://repo.anchnet.com/repository/public" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+ext {
+    springCloudVersion = 'Greenwich.M3'
+}
+
+group 'com.anchnet'
+
+sourceCompatibility = 1.8
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
