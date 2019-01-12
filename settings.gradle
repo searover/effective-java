@@ -10,5 +10,5 @@
 rootProject.name = 'effective'
 include '1-create-and-destroy-object'
 include 'socket'
-include 'spring-data-jdbc'
+include 'orm-spring-data-jdbc'
 

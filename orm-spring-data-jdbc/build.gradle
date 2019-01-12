@@ -3,32 +3,36 @@ buildscript {
         springBootVersion = '2.1.1.RELEASE'
     }
     repositories {
-        maven { url "http://repo.anchnet.com/repository/public" }
+        mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
 
+plugins {
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+}
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 repositories {
-    maven { url "http://repo.anchnet.com/repository/public" }
+    mavenCentral()
     maven { url "https://repo.spring.io/milestone" }
 }
 
-ext {
-    springCloudVersion = 'Greenwich.M3'
+lombok {
+    version = "1.18.0"
+    sha256 = ""
 }
 
-group 'com.anchnet'
-
-sourceCompatibility = 1.8
-
+configurations {
+    compile.exclude group: 'org.apache.logging.log4j'
+}
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
