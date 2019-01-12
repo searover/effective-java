@@ -7,6 +7,8 @@
  * in the user guide at https://docs.gradle.org/4.7/userguide/multi_project_builds.html
  */
 
-rootProject.name = 'effective-java'
+rootProject.name = 'effective'
 include '1-create-and-destroy-object'
+include 'socket'
+include 'spring-data-jdbc'
 
