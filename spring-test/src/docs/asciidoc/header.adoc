@@ -1,0 +1,217 @@
+
+
+
+=== HTTP verbs
+
+API 调用支持以下几种方式：
+
+|===
+| Verb | Usage
+
+| `GET`
+| 获取资源（资源列表或详情）
+
+| `POST`
+| 创建资源
+
+| `PATCH`
+| 更新资源的部分属性
+
+| `PUT`
+| 更新资源的全部属性
+
+| `DELETE`
+| 删除已存在的资源
+|===
+
+=== HTTP Status Code
+
+API 调用将返回以下几种状态码：
+
+|===
+| Status | Usage
+
+| `200 OK`
+| [GET] 服务器成功返回客户端请求的资源
+
+| `201 Created`
+| [POST/PATCH] 客户端新建资源成功,或修改资源属性成功
+
+| `204 No Content`
+| [DELETE] 客户端删除资源成功
+
+| `400 Bad Request`
+| [*] 客户端请求参数错误，在服务器返回的 Response Body 中包含详情错误信息
+
+| `401 Unauthorized`
+| [*] 客户端未通过身份认证（用户名、密码错误等）
+
+| `403 Forbidden`
+| [*] 客户端已通过认证，但没有权限访问该资源
+
+| `404 Not Found`
+| [*] 客户端发出请求访问不存在的资源
+
+| `422 Unprocessable entity`
+| [POST/PATCH] 当创建/修改一个资源时，发生一个验证错误
+
+| `500 Internal Server Error`
+| [*] 服务内部未处理异常，返回信息中一般会包含程序堆栈信息,遇到该错误请联系开发人员解决
+|===
+
+=== HTTP Response body
+
+.公共字段
+|===
+|名称 |类型 |描述
+
+|requestId
+|string
+|标识每一次请求的唯一id
+
+|timestamp
+|ISODateTime
+|服务器响应的时间
+
+|status
+|int
+|Http 状态码
+
+|data
+|object
+|返回结果
+
+|page
+|Page
+|列表分页字段，详情见下表
+
+|sort
+|Sort
+|列表排序字段，详情见下表
+
+|path
+|string
+|请求资源的路径
+
+|error
+|ErrorCode
+|错误码
+
+|message
+|string
+|错误详情
+|===
+
+
+.Page 类型说明
+|===
+|名称 |类型 |描述
+
+|size
+|int
+|每页行数
+
+|number
+|int
+|当前页码
+
+|totalItems
+|long
+|资源总数
+
+|totalPages
+|int
+|总页数
+|===
+
+.Sort 类型说明
+|===
+|名称 |类型 |描述
+
+|field
+|string
+|排序字段
+
+|order
+|string
+|ASE\|DESC
+|===
+
+.ErrorCode
+|===
+|名称 |Http Status|描述
+
+|ILLEGAL_ARGUMENT
+|400
+|请求参数不合法
+
+|AUTHENTICATION_REQUIRED
+|401
+|用户未登录
+
+|USERNAME_NOT_EXIST
+|401
+|用户名不存在
+
+|NAME_OR_PASS_INCORRECT
+|401
+|用户名/密码错误
+
+|ROOT_USER_EXIST
+|403
+|根用户已存在
+
+|UNEXPECTED_EXCEPTION
+|500
+|服务端出现一个未预期的错误
+
+|UNKNOWN_SERVER_ERROR
+|500
+|服务端未知错误
+|===
+
+=== Examples
+
+.列表查询示例：
+[source,options="nowrap"]
+----
+{
+    "requestId": "afb4eb77-4a85-4393-b9c5-4d9d8c46a2cb",
+    "timestamp": "2018-07-08T12:00:01.825+0000",
+    "status": 200,
+    "data": [
+        {
+            "id": "5b40cfcfd45d18d69b3c5067",
+            "instanceName": "研发测试-luxz",
+            "publicIPAddresses": [
+                "118.25.62.33"
+            ],
+            "launchTime": "2018-07-07T09:17:16.000+0000"
+        }
+    ],
+    "page": {
+        "size": 1,
+        "number": 0,
+        "totalItems": 51,
+        "totalPages": 51
+    },
+    "sort": {
+        "field": "launchTime",
+        "order": "DESC"
+    },
+    "path": "/resource/instances"
+}
+----
+
+.请求参数错误示例：
+[source,options="nowrap"]
+----
+{
+  "requestId": "aea5cdc0-8187-45a6-86ea-2a9f8e3edfbf",
+  "timestamp": "2018-07-08T12:50:18.980+0000",
+  "status": 400,
+  "error": "COMMON_ILLEGAL_ARGUMENT",
+  "message": "Unknown name: 'hello'",
+  "path": "/http://resource[resource]/instances"
+}
+----

@@ -1,0 +1,15 @@
+= AMS用户管理API文档(运维端)
+Andy Wilkinson;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+== API Overview
+
+include::header.adoc[]
+
+=== 查询客户信息
+operation::get-account-test[snippets='request-parameters,curl-request,http-response']
