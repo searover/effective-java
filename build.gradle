@@ -5,4 +5,4 @@
  * For more details take a look at the Java Libraries chapter in the Gradle
  * user guide available at https://docs.gradle.org/4.7/userguide/java_library_plugin.html
  */
-
+group 'io.effective'

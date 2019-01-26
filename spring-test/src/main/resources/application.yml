@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-test
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.101.6:3306/smartops?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
+    username: usercenter
+    password: 1332
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mappings/*.xml
