@@ -30,12 +30,19 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.alibaba:fastjson:1.2.47'
     implementation 'mysql:mysql-connector-java:6.0.6'
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.10'
+    implementation 'tk.mybatis:mapper-spring-boot-starter:2.1.4'
+    implementation 'org.springframework.data:spring-data-commons:2.1.3.RELEASE'
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "org.springframework.restdocs:spring-restdocs-mockmvc"
+    testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:1.3.2'
     asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 }
 
@@ -48,7 +55,7 @@ ext {
     snippetsDir = file('build/generated-snippets')
 }
 
-test{
+test {
     outputs.dir snippetsDir
 }
 

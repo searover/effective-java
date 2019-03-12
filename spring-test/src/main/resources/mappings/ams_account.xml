@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.effective.dao.AmsAccountDao">
+    <resultMap id="CustomerResultMap" extends="io.effective.mapper.AmsAccountMapper.BaseResultMap">
+        <collection property="engineers" column="id" select="findEngineersByCustomerId"/>
+    </resultMap>
+
+    <select id="findCustomersByOpsUserId" resultMap="CustomerResultMap">
+        select cus.*
+        from ams_customer_ops_user acou
+                 left join ams_account cus on acou.account_id = cus.id
+        where acou.user_id = #{opsUserId}
+          and cus.deleted = false
+    </select>
+
+    <select id="findEngineersByCustomerId" resultType="io.effective.dto.Engineer">
+        select au.id, au.name, acou.is_primary as isPrimary
+        from ams_customer_ops_user acou
+                 inner join ams_user au on acou.user_id = au.id
+        where acou.account_id = #{0}
+          and au.deleted = false
+    </select>
+
+    <select id="getAccountByName" resultType="io.effective.model.AmsAccount">
+        select * from ams_account where id = #{id}
+    </select>
+    <update id="updateAccountName">
+        update ams_account set name = #{name} where id = #{id}
+    </update>
+</mapper>

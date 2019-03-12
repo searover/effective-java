@@ -1,11 +1,11 @@
 package io.effective.mapper;
 
 import io.effective.BaseMapper;
-import io.effective.model.AmsAccount;
+import io.effective.model.AmsUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
 @Mapper
 @Component
-public interface AmsAccountMapper extends BaseMapper<AmsAccount> {
+public interface AmsUserMapper extends BaseMapper<AmsUser> {
 }

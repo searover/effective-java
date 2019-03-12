@@ -1,10 +1,13 @@
 package io.effective.service;
 
+import io.effective.dao.AmsAccountDao;
+import io.effective.dto.Customer;
 import io.effective.mapper.AmsAccountMapper;
 import io.effective.model.AmsAccount;
 import io.effective.model.AmsAccountExample;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
+import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,10 +22,12 @@ import java.util.stream.Collectors;
 @Service
 public class AccountServiceImpl implements AccountService {
     private final AmsAccountMapper accountMapper;
+    private final AmsAccountDao accountDao;
 
     @Autowired
-    public AccountServiceImpl(AmsAccountMapper accountMapper) {
+    public AccountServiceImpl(AmsAccountMapper accountMapper, AmsAccountDao accountDao) {
         this.accountMapper = accountMapper;
+        this.accountDao = accountDao;
     }
 
     @Override
@@ -49,5 +54,13 @@ public class AccountServiceImpl implements AccountService {
             criteria.andIdIn(idList);
         }
         return accountMapper.selectByExample(example);
+    }
+
+    @Override
+    public List<Customer> getCustomers(String opsUserId) {
+        var list = accountDao.findCustomersByOpsUserId(opsUserId);
+        list = accountDao.findCustomersByOpsUserId(opsUserId);
+        list(new long[]{});
+        return null;
     }
 }

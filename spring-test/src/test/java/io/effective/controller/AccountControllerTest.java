@@ -58,10 +58,9 @@ public class AccountControllerTest {
 
     @Test
     public void getAccountTest() throws Exception {
-        val account = new AmsAccount(1L, "", new Date());
+        val account = new AmsAccount();
         when(accountService.getAmsAccountById(anyLong())).thenReturn(account);
         mvc.perform(get("/account/{id}", account.getId()))
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", notNullValue()))
                 .andExpect(jsonPath("$.name", is(account.getName())))
