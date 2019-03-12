@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+group 'io.effective'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url "http://repo.anchnet.com/repository/public" }
+}
+
+dependencies {
+    compile 'org.apache.shiro:shiro-core:1.4.0'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

@@ -12,7 +12,7 @@ public class AopTest {
 
 //    @Before("execution(* io.effective.service.AccountService.*(..))")
 //    @Before("@target(org.springframework.web.bind.annotation.RestController)")
-    @Before("execution(* io.effective.controller.AccountController(..))")
+//    @Before("execution(* io.effective.controller.AccountController(..))")
     public void beforeInvoke() {
         System.out.println("Before advice invoked...");
     }
