@@ -8,12 +8,22 @@ import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
 public class AccountController {
     @Autowired
     private AccountService accountService;
+
+    @GetMapping("/")
+    public String index(HttpServletRequest request) {
+        val sess = request.getSession(false);
+        if (sess == null)
+            return "session is null";
+        else
+            return sess.getId();
+    }
 
     @GetMapping("/account/{id}")
     public AmsAccount account(@PathVariable long id) {
@@ -28,7 +38,7 @@ public class AccountController {
     }
 
     @PutMapping("/account")
-    public Customer create(@RequestBody Customer account){
+    public Customer create(@RequestBody Customer account) {
         return account;
     }
 }

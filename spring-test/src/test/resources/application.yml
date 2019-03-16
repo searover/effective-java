@@ -6,6 +6,8 @@ spring:
     url: jdbc:mysql://192.168.101.6:3306/smartops?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8
     username: usercenter
     password: 1332
+  session:
+    store-type: redis
 mybatis:
   mapper-locations: classpath:mappings/*.xml
   config-location: classpath:mybatis-config.xml

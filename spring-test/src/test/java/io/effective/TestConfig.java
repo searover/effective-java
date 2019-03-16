@@ -1,22 +1,15 @@
 package io.effective;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.github.pagehelper.Page;
-import io.effective.model.Person;
 import lombok.val;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.restdocs.RestDocsMockMvcConfigurationCustomizer;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation;
-import org.springframework.restdocs.mockmvc.MockMvcRestDocumentationConfigurer;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
-import org.springframework.restdocs.templates.TemplateFormats;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Map;
 
 import static org.springframework.restdocs.operation.preprocess.Preprocessors.*;
 
@@ -36,6 +29,13 @@ public class TestConfig {
 
     @Test
     public void name() {
-        System.out.println(RandomStringUtils.randomNumeric(6));
+        val encoder = new BCryptPasswordEncoder();
+        val encoded1 = encoder.encode("123456");
+        val encoded2 = encoder.encode("123456");
+        System.out.println(encoded1);
+        System.out.println(encoded2);
+//        System.out.println(encoder.matches("123456", encoded1));
+//        System.out.println(encoder.matches("123456", encoded2));
+        System.out.println(encoder.matches("123456", "$2a$10$z1haWd23mpjsfoR35OnV2uedpHD1S6Wn7lkGrDCBNuPkAOFXFy6vS"));
     }
 }
