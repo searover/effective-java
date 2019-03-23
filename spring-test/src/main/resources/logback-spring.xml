@@ -2,8 +2,7 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
-    <logger name="io.effective.mapper" level="DEBUG"/>
-    <logger name="io.effective.dao" level="DEBUG"/>
+    <logger name="org.springframework.security" level="TRACE"/>
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>

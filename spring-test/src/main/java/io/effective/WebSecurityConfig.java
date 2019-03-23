@@ -4,31 +4,16 @@ import io.effective.service.RestAuthenticationEntryPoint;
 import io.effective.service.RestAuthenticationFailureHandler;
 import io.effective.service.RestAuthenticationSuccessHandler;
 import io.effective.service.RestLogoutHandler;
-import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.RequestMatcher;
-import org.springframework.security.web.util.matcher.RequestMatcherEditor;
-import org.springframework.util.AntPathMatcher;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Configuration
 @EnableWebSecurity
@@ -62,11 +47,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         ;
     }
 
-    @Bean
-    @Override
-    protected UserDetailsService userDetailsService() {
-        return userDetailsService;
-    }
+//    @Override
+//    protected AuthenticationManager authenticationManager() throws Exception {
+//        return authentication -> {
+//            val user = userDetailsService.loadUserByUsername(authentication.getName());
+//            val token = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+//            return token;
+//        };
+//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
