@@ -15,4 +15,6 @@ include 'jooq'
 include 'spring-test'
 include 'shiro'
 include 'application-event'
+include 'io'
+include 'hashmap'
 

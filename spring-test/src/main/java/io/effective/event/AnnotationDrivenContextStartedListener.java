@@ -2,6 +2,7 @@ package io.effective.event;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.*;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -13,6 +14,8 @@ public class AnnotationDrivenContextStartedListener {
         log.info("==============Handling context started event.");
     }
 
+
+    @Async
     @EventListener
     public void handleContextRefresh(ContextRefreshedEvent cre) {
         log.info("==============Handling context refresh event.");
