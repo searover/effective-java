@@ -17,4 +17,5 @@ include 'shiro'
 include 'application-event'
 include 'io'
 include 'hashmap'
+include 'basic'
 

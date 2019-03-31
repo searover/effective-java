@@ -7,7 +7,7 @@ group 'io.effective'
 sourceCompatibility = 1.8
 
 repositories {
-    maven { url "http://repo.anchnet.com/repository/public" }
+    mavenCentral()
 }
 
 dependencies {
