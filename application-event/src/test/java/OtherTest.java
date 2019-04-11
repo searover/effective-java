@@ -21,4 +21,19 @@ public class OtherTest {
             System.out.print((num & (tmp >>>= 1)) > 0 ? 1 : 0);
         }
     }
+
+    @Test
+    public void charArrayType() {
+        char[] chars = {'a', 'b', 'c'};
+        Object obj = chars;
+        int i = 0;
+        obj = i;
+        char c = 'a';
+        obj = c;
+        Integer[] integers = {1, 2, 3};
+        obj = integers;
+        int[] ints = {1, 2, 3, 4, 5};
+        obj = ints;
+        System.out.println(obj.getClass().getName());
+    }
 }
