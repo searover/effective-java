@@ -8,6 +8,10 @@ public class ThreeTuple<A, B, C> extends TwoTuple<A, B> {
         third = c;
     }
 
+    public C getThird() {
+        return third;
+    }
+
     @Override
     public String toString() {
         return "ThreeTuple{" +
