@@ -1,16 +1,16 @@
 import org.junit.Test;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class Tests {
     @Test
     public void name() {
-        HashSet<Character> set = new HashSet<>();
-        set.add('c');
-        set.add('b');
-        set.add('a');
-        set.add('d');
-        set.add('e');
-        System.out.println(set);
+        Map<String, String> map = new HashMap<>();
+        map.put("hello", "world");
+        Collection<String> values = map.values();
+        System.out.println(values);
     }
 }
