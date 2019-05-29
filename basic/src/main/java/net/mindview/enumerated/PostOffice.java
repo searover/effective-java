@@ -1,4 +1,4 @@
-package net.mindview.enumerated.menu;
+package net.mindview.enumerated;
 
 import net.mindview.util.Enums;
 
@@ -166,5 +166,4 @@ public class PostOffice {
             System.out.println("******");
         }
     }
-
 }
