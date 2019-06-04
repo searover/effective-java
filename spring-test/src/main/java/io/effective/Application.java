@@ -40,12 +40,7 @@ public class Application implements CommandLineRunner {
         ExecutorService pool = new ThreadPoolExecutor(5, 200, 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingDeque<Runnable>(1024), threadFactory);
         for (int i = 0; i < 100; i++) {
-            pool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    log.info(parseDate("2019-03-21 11:11:11") + "");
-                }
-            });
+            pool.execute(() -> log.info(parseDate("2019-03-21 11:11:11") + ""));
         }
         pool.shutdown();
         pool.awaitTermination(1, TimeUnit.HOURS);
