@@ -64,7 +64,7 @@ class WaxOff implements Runnable {
     public void run() {
         try {
             while (!Thread.interrupted()) {
-                car.waitingForBuffing();
+                car.waitingForWaxing();
                 System.out.println("Wax off!");
                 TimeUnit.MILLISECONDS.sleep(200);
                 car.buffed();
