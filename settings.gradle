@@ -8,7 +8,6 @@
  */
 
 rootProject.name = 'effective'
-include '1-create-and-destroy-object'
 include 'socket'
 include 'orm-spring-data-jdbc'
 include 'jooq'
@@ -18,4 +17,5 @@ include 'application-event'
 include 'io'
 include 'hashmap'
 include 'basic'
+include 'concurrency'
 
