@@ -8,8 +8,8 @@
  */
 
 rootProject.name = 'effective'
-include 'socket'
-include 'orm-spring-data-jdbc'
+//include 'socket'
+//include 'orm-spring-data-jdbc'
 include 'jooq'
 include 'spring-test'
 include 'shiro'
