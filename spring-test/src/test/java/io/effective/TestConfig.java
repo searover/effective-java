@@ -46,4 +46,11 @@ public class TestConfig {
         ois.close();
         System.out.println("AmsUser deserialize: " + user);
     }
+
+    @Test
+    public void os() {
+        System.getProperties().forEach((o, o2) -> {
+            System.out.println(o + ":" + o2);
+        });
+    }
 }
