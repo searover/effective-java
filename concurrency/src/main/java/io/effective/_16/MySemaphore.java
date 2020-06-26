@@ -6,14 +6,14 @@ import java.util.Queue;
  * @author luxz
  * @date 2020/6/26-2:11 PM
  */
-public class Semaphore {
+public class MySemaphore {
     // 计数器
     int count;
     // 等待队列
     Queue queue;
     // 初始化操作
 
-    public Semaphore(int count) {
+    public MySemaphore(int count) {
         this.count = count;
     }
 
