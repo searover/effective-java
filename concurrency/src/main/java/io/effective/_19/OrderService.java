@@ -1,6 +1,6 @@
 package io.effective._19;
 
-import java.util.Vector;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -115,6 +115,18 @@ public class OrderService {
             }
         });
         t2.start();
+    }
+
+    public static void main(String[] args) {
+        Map<String, String> map = new HashMap<>();
+        map.put(null, null);
+        System.out.println(map);
+        Map<String, String> tMap = new TreeMap<>();
+        tMap.put("", null);
+        System.out.println(tMap);
+        Map<String, String> ht = new Hashtable<>();
+        ht.put("", "");
+        System.out.println(ht);
     }
 
 }
