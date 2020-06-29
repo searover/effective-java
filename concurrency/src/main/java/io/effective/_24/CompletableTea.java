@@ -31,7 +31,6 @@ public class CompletableTea {
             System.out.println("T1: 泡茶...");
             return "上茶：" + tf;
         });
-
         System.out.println(cf3.join());
     }
 
