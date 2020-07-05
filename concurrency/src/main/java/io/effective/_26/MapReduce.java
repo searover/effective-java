@@ -23,7 +23,9 @@ public class MapReduce {
             Fibo f1 = new Fibo(n - 1);
             f1.fork();
             Fibo f2 = new Fibo(n - 2);
-            return f2.compute() + f1.join();
+            int result = f2.compute() + f1.join();
+            System.out.println(Thread.currentThread() + "\t" + result);
+            return result;
         }
     }
 
