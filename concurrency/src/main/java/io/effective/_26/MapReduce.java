@@ -23,15 +23,13 @@ public class MapReduce {
             Fibo f1 = new Fibo(n - 1);
             f1.fork();
             Fibo f2 = new Fibo(n - 2);
-            int result = f2.compute() + f1.join();
-            System.out.println(Thread.currentThread() + "\t" + result);
-            return result;
+            return f2.compute() + f1.join();
         }
     }
 
     public static void main(String[] args) {
-        ForkJoinPool fjp = new ForkJoinPool(32);
-        Fibo fib = new Fibo(45);
+        ForkJoinPool fjp = new ForkJoinPool(8);
+        Fibo fib = new Fibo(43);
         int result = fjp.invoke(fib);
         System.out.println(result);
     }
