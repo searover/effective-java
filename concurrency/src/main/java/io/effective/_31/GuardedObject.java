@@ -45,6 +45,7 @@ public class GuardedObject<T> {
         return obj;
     }
 
+    // 事件通知方法
     void onChanged(T obj) {
         lock.lock();
         try {
