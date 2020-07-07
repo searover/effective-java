@@ -18,4 +18,5 @@ include 'io'
 include 'hashmap'
 include 'basic'
 include 'concurrency'
+include 'netty'
 
