@@ -8,7 +8,7 @@ import java.nio.channels.SocketChannel;
 
 public class HttpServer_Thread {
     public static void main(String[] args) throws IOException {
-        final ServerSocketChannel ssc = ServerSocketChannel.open().bind(new InetSocketAddress(8082));
+        final ServerSocketChannel ssc = ServerSocketChannel.open().bind(new InetSocketAddress(8089));
         try {
             while (true) {
                 // 接收请求
@@ -20,7 +20,7 @@ public class HttpServer_Thread {
                         ByteBuffer rb = ByteBuffer.allocateDirect(1024);
                         sc.read(rb);
                         // 模拟处理请求
-                        Thread.sleep(1000);
+                        Thread.sleep(100);
                         // 写Socket
                         ByteBuffer wb = (ByteBuffer) rb.flip();
                         sc.write(wb);
