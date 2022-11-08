@@ -28,7 +28,7 @@ lombok {
 }
 
 configurations {
-    compile.exclude group: 'org.apache.logging.log4j'
+    implementation.exclude group: 'org.apache.logging.log4j'
 }
 
 dependencies {

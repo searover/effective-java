@@ -1,6 +1,13 @@
 package io.effective;
 
 public class Test {
+
+    private static Test tt;
+
+    public Test() {
+        tt = this;
+    }
+
     private long count = 0;
 
     private synchronized void add10K() {
