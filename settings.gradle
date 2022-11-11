@@ -25,4 +25,5 @@ findProject(':spring-cloud:spring-cloud-sleuth')?.name = 'spring-cloud-sleuth'
 include 'spring-cloud-sleuth'
 include 'cms'
 include 'dp'
+include 'guava'
 
